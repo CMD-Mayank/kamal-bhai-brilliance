@@ -162,6 +162,49 @@
   }
 }
 
+/* ElevenLabs Widget Styling */
+elevenlabs-convai {
+  --elevenlabs-convai-widget-width: 60px;
+  --elevenlabs-convai-widget-height: 60px;
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  z-index: 9999 !important;
+}
+
+elevenlabs-convai::part(widget) {
+  background: linear-gradient(135deg, hsl(345 65% 25%), hsl(345 75% 18%)) !important;
+  border: 2px solid hsl(40 70% 50%) !important;
+  box-shadow: 
+    0 0 20px hsl(40 70% 50% / 0.4),
+    0 0 40px hsl(345 65% 25% / 0.3),
+    0 8px 32px hsl(345 65% 25% / 0.4) !important;
+  animation: widget-pulse 2s ease-in-out infinite !important;
+}
+
+elevenlabs-convai::part(widget):hover {
+  transform: scale(1.1) !important;
+  box-shadow: 
+    0 0 30px hsl(40 70% 50% / 0.6),
+    0 0 60px hsl(345 65% 25% / 0.4),
+    0 12px 40px hsl(345 65% 25% / 0.5) !important;
+}
+
+@keyframes widget-pulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px hsl(40 70% 50% / 0.4),
+      0 0 40px hsl(345 65% 25% / 0.3),
+      0 8px 32px hsl(345 65% 25% / 0.4);
+  }
+  50% {
+    box-shadow: 
+      0 0 30px hsl(40 70% 50% / 0.6),
+      0 0 50px hsl(345 65% 25% / 0.4),
+      0 8px 32px hsl(345 65% 25% / 0.5);
+  }
+}
+
 @layer utilities {
   .animate-fade-up {
     animation: fadeUp 0.6s ease-out forwards;
