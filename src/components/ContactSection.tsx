@@ -106,7 +106,7 @@ const ContactSection = () => {
               asChild
             >
               <a 
-                href="https://wa.me/919876543210" 
+                href="https://wa.me/919711741234" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-3"

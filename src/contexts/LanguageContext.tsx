@@ -82,7 +82,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.title': 'Visit Our Store',
     'contact.subtitle': 'Experience the Elegance in Person',
     'contact.address': 'Chandni Chowk, Delhi, India',
-    'contact.phone': '+91 98765 43210',
+    'contact.phone': '+91 97117 41234',
     'contact.hours': 'Mon - Sat: 10:00 AM - 8:00 PM',
     'contact.whatsapp': 'Chat on WhatsApp',
     
@@ -163,7 +163,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.title': 'हमारे स्टोर पर आएं',
     'contact.subtitle': 'शान का व्यक्तिगत अनुभव करें',
     'contact.address': 'चांदनी चौक, दिल्ली, भारत',
-    'contact.phone': '+91 98765 43210',
+    'contact.phone': '+91 97117 41234',
     'contact.hours': 'सोम - शनि: सुबह 10:00 - रात 8:00',
     'contact.whatsapp': 'व्हाट्सएप पर चैट करें',
     
