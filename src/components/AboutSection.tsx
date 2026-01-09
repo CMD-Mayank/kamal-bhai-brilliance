@@ -28,22 +28,30 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-24 bg-cream" ref={ref}>
-      <div className="container mx-auto px-4">
-        {/* Section Header */}
+    <section id="about" className="py-28 bg-gradient-section relative overflow-hidden" ref={ref}>
+      {/* Background decorative elements */}
+      <div className="absolute top-20 left-10 w-64 h-64 bg-gold/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-10 w-80 h-80 bg-maroon/5 rounded-full blur-3xl" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Section Header with ornate divider */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-20"
         >
-          <span className="text-gold font-sans text-sm tracking-[0.3em] uppercase mb-4 block">
+          <span className="text-gold font-sans text-sm tracking-[0.4em] uppercase mb-6 block font-medium">
             {t('about.title')}
           </span>
-          <h2 className="text-3xl md:text-5xl font-serif font-bold text-maroon mb-6">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-maroon mb-8">
             {t('about.subtitle')}
           </h2>
-          <div className="w-20 h-0.5 bg-gold mx-auto" />
+          <div className="flex items-center justify-center gap-4">
+            <div className="w-20 h-px bg-gradient-to-r from-transparent to-gold" />
+            <div className="w-2 h-2 rotate-45 border border-gold" />
+            <div className="w-20 h-px bg-gradient-to-l from-transparent to-gold" />
+          </div>
         </motion.div>
 
         {/* Main Content */}
@@ -87,23 +95,23 @@ const AboutSection = () => {
           </motion.div>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Features Grid with luxury cards */}
+        <div className="grid md:grid-cols-3 gap-10">
           {features.map((feature, index) => (
             <motion.div
               key={feature.titleKey}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.6 + index * 0.2 }}
-              className="bg-card p-8 rounded-lg shadow-elegant hover:shadow-elegant-md transition-all duration-300 text-center group"
+              transition={{ duration: 0.8, delay: 0.6 + index * 0.15, ease: [0.16, 1, 0.3, 1] }}
+              className="card-luxury group hover-lift text-center"
             >
-              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors duration-300">
-                <feature.icon className="w-8 h-8 text-gold" />
+              <div className="w-20 h-20 mx-auto mb-8 rounded-full bg-gradient-to-br from-gold/20 to-gold/5 flex items-center justify-center group-hover:from-gold/30 group-hover:to-gold/10 transition-all duration-500 shadow-glow">
+                <feature.icon className="w-10 h-10 text-gold group-hover:scale-110 transition-transform duration-500" />
               </div>
-              <h3 className="text-xl font-serif font-semibold text-maroon mb-4">
+              <h3 className="text-xl font-serif font-semibold text-maroon mb-5">
                 {t(feature.titleKey)}
               </h3>
-              <p className="text-muted-foreground font-sans">
+              <p className="text-muted-foreground font-sans leading-relaxed">
                 {t(feature.descKey)}
               </p>
             </motion.div>

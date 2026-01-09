@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -48,6 +48,7 @@
     --gold: 40 70% 50%;
     --gold-light: 40 60% 70%;
     --gold-dark: 40 80% 35%;
+    --gold-shimmer: 42 85% 55%;
     --maroon: 345 65% 25%;
     --maroon-light: 345 55% 35%;
     --maroon-dark: 345 75% 18%;
@@ -55,15 +56,20 @@
     --cream-dark: 40 25% 92%;
     --ivory: 40 40% 95%;
     
-    /* Gradients */
+    /* Enhanced Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(345 65% 25% / 0.9), hsl(345 75% 18% / 0.95));
     --gradient-gold: linear-gradient(135deg, hsl(40 70% 50%), hsl(40 80% 60%));
+    --gradient-gold-shimmer: linear-gradient(90deg, hsl(40 70% 50%), hsl(42 85% 65%), hsl(40 70% 50%));
     --gradient-card: linear-gradient(180deg, hsl(40 25% 99%), hsl(40 30% 96%));
+    --gradient-luxury: linear-gradient(135deg, hsl(345 65% 25%), hsl(345 75% 20%), hsl(345 65% 28%));
+    --gradient-section: linear-gradient(180deg, hsl(40 30% 97%), hsl(40 25% 94%), hsl(40 30% 97%));
     
-    /* Shadows */
+    /* Enhanced Shadows */
     --shadow-soft: 0 4px 20px -4px hsl(345 65% 25% / 0.1);
     --shadow-medium: 0 8px 30px -8px hsl(345 65% 25% / 0.15);
     --shadow-gold: 0 4px 20px -4px hsl(40 70% 50% / 0.3);
+    --shadow-luxury: 0 20px 60px -20px hsl(345 65% 25% / 0.25), 0 0 40px hsl(40 70% 50% / 0.1);
+    --shadow-glow: 0 0 30px hsl(40 70% 50% / 0.2);
     
     /* Sidebar */
     --sidebar-background: 40 30% 97%;
@@ -129,12 +135,18 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
   }
+
+  /* Elegant selection colors */
+  ::selection {
+    background: hsl(40 70% 50% / 0.3);
+    color: hsl(345 65% 25%);
+  }
 }
 
 @layer components {
   .text-gradient-gold {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(40 70% 50%), hsl(40 80% 65%));
+    background-image: linear-gradient(135deg, hsl(40 70% 50%), hsl(42 85% 65%), hsl(40 80% 55%));
   }
   
   .bg-gradient-hero {
@@ -143,6 +155,14 @@
   
   .bg-gradient-gold {
     background: linear-gradient(135deg, hsl(40 70% 50%), hsl(40 80% 60%));
+  }
+
+  .bg-gradient-luxury {
+    background: linear-gradient(135deg, hsl(345 65% 25%), hsl(345 75% 20%), hsl(345 65% 28%));
+  }
+
+  .bg-gradient-section {
+    background: linear-gradient(180deg, hsl(40 30% 97%), hsl(40 25% 94%), hsl(40 30% 97%));
   }
   
   .border-gold {
@@ -160,15 +180,93 @@
   .shadow-gold {
     box-shadow: var(--shadow-gold);
   }
+
+  .shadow-luxury {
+    box-shadow: var(--shadow-luxury);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Elegant dividers */
+  .divider-ornate {
+    @apply relative flex items-center justify-center gap-4;
+  }
+  
+  .divider-ornate::before,
+  .divider-ornate::after {
+    content: '';
+    @apply h-px flex-1 bg-gradient-to-r from-transparent via-gold/50 to-transparent;
+  }
+
+  /* Luxurious text effects */
+  .text-shimmer {
+    background: linear-gradient(90deg, hsl(40 70% 50%) 0%, hsl(42 85% 70%) 50%, hsl(40 70% 50%) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textShimmer 3s ease-in-out infinite;
+  }
+
+  /* Glass effect */
+  .glass-effect {
+    @apply backdrop-blur-xl bg-cream/80 border border-gold/20;
+  }
+
+  /* Elegant cards */
+  .card-luxury {
+    @apply bg-card rounded-xl p-8 shadow-luxury border border-gold/10 relative overflow-hidden;
+  }
+
+  .card-luxury::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent opacity-50;
+  }
+
+  /* Ornamental corners */
+  .ornamental-corners {
+    @apply relative;
+  }
+
+  .ornamental-corners::before,
+  .ornamental-corners::after {
+    content: '';
+    @apply absolute w-8 h-8 border-gold;
+  }
+
+  .ornamental-corners::before {
+    @apply top-0 left-0 border-t-2 border-l-2;
+  }
+
+  .ornamental-corners::after {
+    @apply bottom-0 right-0 border-b-2 border-r-2;
+  }
+
+  /* Floating animation for decorative elements */
+  .float-gentle {
+    animation: floatGentle 6s ease-in-out infinite;
+  }
+
+  /* Subtle parallax hover effect */
+  .hover-lift {
+    @apply transition-all duration-500 ease-out;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px hsl(345 65% 25% / 0.25);
+  }
 }
 
 /* ElevenLabs Widget Styling */
 elevenlabs-convai {
-  --elevenlabs-convai-widget-width: 60px;
-  --elevenlabs-convai-widget-height: 60px;
+  --elevenlabs-convai-widget-width: 64px;
+  --elevenlabs-convai-widget-height: 64px;
   position: fixed !important;
-  bottom: 24px !important;
-  right: 24px !important;
+  bottom: 28px !important;
+  right: 28px !important;
   z-index: 9999 !important;
 }
 
@@ -176,56 +274,68 @@ elevenlabs-convai::part(widget) {
   background: linear-gradient(135deg, hsl(345 65% 25%), hsl(345 75% 18%)) !important;
   border: 2px solid hsl(40 70% 50%) !important;
   box-shadow: 
-    0 0 20px hsl(40 70% 50% / 0.4),
-    0 0 40px hsl(345 65% 25% / 0.3),
-    0 8px 32px hsl(345 65% 25% / 0.4) !important;
-  animation: widget-pulse 2s ease-in-out infinite !important;
+    0 0 25px hsl(40 70% 50% / 0.5),
+    0 0 50px hsl(345 65% 25% / 0.4),
+    0 10px 40px hsl(345 65% 25% / 0.5),
+    inset 0 1px 1px hsl(40 70% 70% / 0.2) !important;
+  animation: widget-pulse 2.5s ease-in-out infinite !important;
 }
 
 elevenlabs-convai::part(widget):hover {
-  transform: scale(1.1) !important;
+  transform: scale(1.12) !important;
   box-shadow: 
-    0 0 30px hsl(40 70% 50% / 0.6),
-    0 0 60px hsl(345 65% 25% / 0.4),
-    0 12px 40px hsl(345 65% 25% / 0.5) !important;
+    0 0 35px hsl(40 70% 50% / 0.7),
+    0 0 70px hsl(345 65% 25% / 0.5),
+    0 15px 50px hsl(345 65% 25% / 0.6),
+    inset 0 1px 1px hsl(40 70% 70% / 0.3) !important;
 }
 
 @keyframes widget-pulse {
   0%, 100% {
     box-shadow: 
-      0 0 20px hsl(40 70% 50% / 0.4),
-      0 0 40px hsl(345 65% 25% / 0.3),
-      0 8px 32px hsl(345 65% 25% / 0.4);
+      0 0 25px hsl(40 70% 50% / 0.5),
+      0 0 50px hsl(345 65% 25% / 0.4),
+      0 10px 40px hsl(345 65% 25% / 0.5),
+      inset 0 1px 1px hsl(40 70% 70% / 0.2);
   }
   50% {
     box-shadow: 
-      0 0 30px hsl(40 70% 50% / 0.6),
-      0 0 50px hsl(345 65% 25% / 0.4),
-      0 8px 32px hsl(345 65% 25% / 0.5);
+      0 0 35px hsl(40 70% 50% / 0.7),
+      0 0 60px hsl(345 65% 25% / 0.5),
+      0 10px 40px hsl(345 65% 25% / 0.5),
+      inset 0 1px 1px hsl(40 70% 70% / 0.3);
   }
 }
 
 @layer utilities {
   .animate-fade-up {
-    animation: fadeUp 0.6s ease-out forwards;
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
   
   .animate-fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
+    animation: fadeIn 0.6s ease-out forwards;
   }
   
   .animate-scale-in {
-    animation: scaleIn 0.4s ease-out forwards;
+    animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
   
   .animate-shimmer {
     animation: shimmer 2s infinite linear;
   }
+
+  .animate-float {
+    animation: floatGentle 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
   
   @keyframes fadeUp {
     from {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(40px);
     }
     to {
       opacity: 1;
@@ -241,7 +351,7 @@ elevenlabs-convai::part(widget):hover {
   @keyframes scaleIn {
     from {
       opacity: 0;
-      transform: scale(0.95);
+      transform: scale(0.9);
     }
     to {
       opacity: 1;
@@ -252,5 +362,33 @@ elevenlabs-convai::part(widget):hover {
   @keyframes shimmer {
     0% { background-position: -200% center; }
     100% { background-position: 200% center; }
+  }
+
+  @keyframes textShimmer {
+    0%, 100% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+  }
+
+  @keyframes floatGentle {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(1deg); }
+  }
+
+  @keyframes glow {
+    from { 
+      box-shadow: 0 0 20px hsl(40 70% 50% / 0.3);
+    }
+    to { 
+      box-shadow: 0 0 40px hsl(40 70% 50% / 0.5);
+    }
+  }
+
+  @keyframes borderGlow {
+    0%, 100% { border-color: hsl(40 70% 50% / 0.3); }
+    50% { border-color: hsl(40 70% 50% / 0.7); }
+  }
+
+  .border-glow {
+    animation: borderGlow 2s ease-in-out infinite;
   }
 }
