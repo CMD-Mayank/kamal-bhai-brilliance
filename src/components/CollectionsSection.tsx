@@ -9,6 +9,9 @@ import festiveSaree from '@/assets/festive-saree.jpg';
 import partySaree from '@/assets/party-saree.jpg';
 import designerSaree from '@/assets/designer-saree.jpg';
 import giftBox from '@/assets/gift-box.jpg';
+import silkSaree from '@/assets/silk-saree.jpg';
+import handloomSaree from '@/assets/handloom-saree.jpg';
+import embroideredSaree from '@/assets/embroidered-saree.jpg';
 
 const CollectionsSection = () => {
   const { t } = useLanguage();
@@ -23,14 +26,29 @@ const CollectionsSection = () => {
       featured: true,
     },
     {
+      titleKey: 'collections.silk',
+      descKey: 'collections.silk.desc',
+      image: silkSaree,
+    },
+    {
       titleKey: 'collections.festive',
       descKey: 'collections.festive.desc',
       image: festiveSaree,
     },
     {
+      titleKey: 'collections.handloom',
+      descKey: 'collections.handloom.desc',
+      image: handloomSaree,
+    },
+    {
       titleKey: 'collections.party',
       descKey: 'collections.party.desc',
       image: partySaree,
+    },
+    {
+      titleKey: 'collections.embroidered',
+      descKey: 'collections.embroidered.desc',
+      image: embroideredSaree,
     },
     {
       titleKey: 'collections.designer',
