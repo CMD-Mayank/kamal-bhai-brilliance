@@ -48,6 +48,12 @@ const translations: Record<Language, Record<string, string>> = {
     'collections.designer.desc': 'Exclusive designer pieces for the discerning bride',
     'collections.gift': 'Gift Boxes',
     'collections.gift.desc': 'Premium gifting solutions for special occasions',
+    'collections.silk': 'Silk Sarees',
+    'collections.silk.desc': 'Luxurious pure silk Kanjivaram and Banarasi weaves',
+    'collections.handloom': 'Handloom Sarees',
+    'collections.handloom.desc': 'Artisanal handwoven treasures from master weavers',
+    'collections.embroidered': 'Embroidered Sarees',
+    'collections.embroidered.desc': 'Intricate zardozi and thread work masterpieces',
     'collections.view': 'View Collection',
     
     // Appointment
@@ -129,6 +135,12 @@ const translations: Record<Language, Record<string, string>> = {
     'collections.designer.desc': 'समझदार दुल्हन के लिए विशेष डिजाइनर टुकड़े',
     'collections.gift': 'उपहार बॉक्स',
     'collections.gift.desc': 'विशेष अवसरों के लिए प्रीमियम उपहार समाधान',
+    'collections.silk': 'सिल्क साड़ियां',
+    'collections.silk.desc': 'शानदार शुद्ध रेशम कांजीवरम और बनारसी बुनाई',
+    'collections.handloom': 'हैंडलूम साड़ियां',
+    'collections.handloom.desc': 'मास्टर बुनकरों की कारीगरी से बनी अनमोल साड़ियां',
+    'collections.embroidered': 'कढ़ाई वाली साड़ियां',
+    'collections.embroidered.desc': 'जरदोज़ी और धागे के काम की उत्कृष्ट कृतियां',
     'collections.view': 'संग्रह देखें',
     
     // Appointment
