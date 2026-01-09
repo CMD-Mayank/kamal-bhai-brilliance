@@ -21,42 +21,42 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-cream/95 backdrop-blur-md border-b border-gold/20">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-xl border-b border-gold/30 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <a href="#home" className="flex flex-col items-start">
-            <span className="text-2xl md:text-3xl font-serif font-bold text-maroon tracking-wide">
+          {/* Logo with elegant styling */}
+          <a href="#home" className="flex flex-col items-start group">
+            <span className="text-2xl md:text-3xl font-serif font-bold text-maroon tracking-wide group-hover:text-shimmer transition-all duration-500">
               Kamal Bhai
             </span>
-            <span className="text-xs md:text-sm font-sans text-gold-dark tracking-[0.2em] uppercase">
+            <span className="text-xs md:text-sm font-sans text-gold-dark tracking-[0.25em] uppercase">
               Saree Sangam
             </span>
           </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          {/* Desktop Navigation with enhanced hover */}
+          <nav className="hidden lg:flex items-center gap-10">
             {navItems.map((item) => (
               <a
                 key={item.key}
                 href={item.href}
-                className="text-foreground/80 hover:text-maroon font-sans text-sm tracking-wide transition-colors duration-300 relative group"
+                className="text-foreground/70 hover:text-maroon font-sans text-sm tracking-wider uppercase transition-all duration-300 relative group"
               >
                 {t(item.key)}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold group-hover:w-full transition-all duration-300" />
+                <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-gold-light via-gold to-gold-light group-hover:w-full transition-all duration-400 ease-out" />
               </a>
             ))}
           </nav>
 
           {/* Right Actions */}
-          <div className="flex items-center gap-4">
-            {/* Language Toggle */}
+          <div className="flex items-center gap-5">
+            {/* Language Toggle with glow */}
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-2 px-3 py-2 rounded-full border border-gold/30 hover:border-gold hover:bg-gold/5 transition-all duration-300"
+              className="flex items-center gap-2 px-4 py-2 rounded-full border border-gold/40 hover:border-gold hover:bg-gold/10 hover:shadow-glow transition-all duration-400 group"
             >
-              <Globe className="w-4 h-4 text-maroon" />
-              <span className="text-sm font-medium text-maroon">
+              <Globe className="w-4 h-4 text-maroon group-hover:rotate-12 transition-transform duration-300" />
+              <span className="text-sm font-semibold text-maroon tracking-wide">
                 {language === 'en' ? 'हिंदी' : 'EN'}
               </span>
             </button>
